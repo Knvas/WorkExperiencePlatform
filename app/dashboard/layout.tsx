@@ -35,7 +35,9 @@ const Layout = (props: Props) => {
 
 
   return (
-    <div className="min-w-screen min-h-screen bg-gray-50 text-gray-900 space-y-5">
+    <div
+      style={{ backgroundImage: 'url(assets/background.png)'}}
+      className="min-w-screen min-h-screen bg-gray-50 text-gray-900 space-y-5 bg-cover bg-center">
       <div className="mx-auto max-w-1440">
         <div className={'relative flex items-center justify-between py-3'}>
           <Image
@@ -59,7 +61,7 @@ const Layout = (props: Props) => {
           </div>
         </div>
 
-        <div className="max-w-full mx-auto grid grid-cols-5 gap-x-5">
+        <div className="max-w-full mx-auto grid grid-cols-6 gap-x-5">
           <div className="relative">
             <div className="w-full space-y-2">
               {
@@ -81,7 +83,7 @@ const Layout = (props: Props) => {
             </div>
 
           </div>
-          <div className="col-span-4">
+          <div className="col-span-5">
             {props.children}
           </div>
         </div>

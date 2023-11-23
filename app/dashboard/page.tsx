@@ -13,10 +13,10 @@ const Home = () => {
 
   return (
     <div className="grid grid-cols-9 gap-x-3">
-      <div className="col-span-6">
+      <div className={update ? `col-span-9`: 'col-span-6'}>
         <Card
           shadow={'none'}
-          className="bg-white border px-2"
+          className="bg-white/[0.80] border px-2"
         >
           <CardHeader>
             <div className="flex items-center justify-between w-full">
@@ -496,8 +496,6 @@ const Home = () => {
                       className="w-full"
                     />
                   </div>
-
-
                 </div>
               ) : (
                 <div className="text-sm">No information given</div>
@@ -660,31 +658,36 @@ const Home = () => {
 
 
       </div>
-      <div className="col-span-3 space-y-4">
-        <Card
-          shadow={'none'}
-          className="p-3 border">
-          <CardHeader className="font-semibold">
-            Assignment Progress
-          </CardHeader>
-          <Divider />
-          <CardBody>
+      {
+        !update && (
+          <div className="col-span-3 space-y-4">
+            <Card
+              shadow={'none'}
+              className="p-3 border">
+              <CardHeader className="font-semibold">
+                Assignment Progress
+              </CardHeader>
+              <Divider />
+              <CardBody>
 
-          </CardBody>
-        </Card>
+              </CardBody>
+            </Card>
 
-        <Card
-          shadow={'none'}
-          className="p-3 border">
-          <CardHeader className="font-semibold">
-            Notifications
-          </CardHeader>
-          <Divider />
-          <CardBody>
+            <Card
+              shadow={'none'}
+              className="p-3 border">
+              <CardHeader className="font-semibold">
+                Notifications
+              </CardHeader>
+              <Divider />
+              <CardBody>
 
-          </CardBody>
-        </Card>
-      </div>
+              </CardBody>
+            </Card>
+          </div>
+        )
+      }
+
     </div>
   );
 };
