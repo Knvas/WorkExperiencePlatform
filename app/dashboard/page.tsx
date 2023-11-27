@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {Card, CardBody, CardHeader} from "@nextui-org/card";
 import {Avatar, Button, Checkbox, CheckboxGroup, Divider} from "@nextui-org/react";
 import {Input, Textarea} from "@nextui-org/input";
+import { FolderIcon } from '@heroicons/react/24/outline'
 
 
 const Home = () => {
@@ -631,19 +632,79 @@ const Home = () => {
           </CardBody>
         </Card>
 
-        <Card
-          shadow={'none'}
-          className="bg-white border px-2 mt-5"
-        >
-          <CardHeader>
-            <div className="uppercase">
-              Insurance Information
-            </div>
-          </CardHeader>
-          <CardBody>
-            <div className="text-sm">No information given</div>
-          </CardBody>
-        </Card>
+        {
+          update ? (
+            <Card
+              shadow={'none'}
+              className="bg-white border px-2 mt-5"
+            >
+              <CardHeader >
+                <div className="uppercase">
+                  Employer Insurance Certificate
+                </div>
+
+              </CardHeader>
+              <CardBody className="space-y-5">
+                <div>
+                  <Checkbox size={'sm'} value="buenos-aires">Select if not applicable</Checkbox>
+                </div>
+
+                <div>
+                  <Input
+                    variant={update ? 'flat' : 'bordered'}
+                    isReadOnly={!update}
+                    type="text"
+                    label="Name of Insurance Company"
+                    value={'Name of Insurance Company'}
+                    size={'md'}
+                    className="rounded-md"
+                    classNames={{
+                      mainWrapper: update ? '' : 'bg-white',
+                      base: update ? '': 'bg-white',
+                      inputWrapper: update ? '' : 'bg-white border border-default-200',
+                      innerWrapper: update ? '' : 'bg-white',
+                      input: 'font-medium',
+                      label: 'text-sm'
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <div className="text-sm text-gray-500">Upload document</div>
+                  <div className="border border-dashed w-1/4 h-32 flex items-center justify-center rounded-lg mt-3 cursor-pointer">
+                    <FolderIcon className="w-10 h-10 text-gray-500" />
+                  </div>
+                </div>
+
+
+
+              </CardBody>
+            </Card>
+          ) : (
+            <Card
+              shadow={'none'}
+              className="bg-white border px-2 mt-5"
+            >
+              <CardHeader>
+                <div className="uppercase">
+                  Insurance Information
+                </div>
+              </CardHeader>
+              <CardBody>
+                {
+                  update ? (
+                    <div>Update</div>
+                  ) : (
+                    <div className="text-sm">No information given</div>
+                  )
+                }
+
+              </CardBody>
+            </Card>
+          )
+        }
+
+
 
         {
           update && (
