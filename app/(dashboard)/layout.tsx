@@ -5,36 +5,23 @@ import Image from "next/image";
 import Link from "next/link";
 import {Cog6ToothIcon, RectangleGroupIcon} from "@heroicons/react/24/outline";
 import {usePathname} from "next/navigation";
-import {Avatar} from "@nextui-org/react";
+import {Avatar, NextUIProvider} from "@nextui-org/react";
+import {navItems} from "@/components/nav-items";
 
 
 interface Props {
   children: React.ReactNode
 }
 
-const menuItems = [
-  {
-    label: 'Dashboard',
-    href: '/dashboard',
-    icon: <RectangleGroupIcon className="w-6 h-6" />
-  },
-  {
-    label: 'Settings',
-    href: '/dashboard/settings',
-    icon: <Cog6ToothIcon className="w-6 h-6" />
-  }
-]
+
 
 
 const Layout = (props: Props) => {
 
   const pathname = usePathname()
 
-  console.log('pathname', pathname)
-
-
-
   return (
+    <NextUIProvider>
     <div
       style={{ backgroundImage: 'url(assets/background.png)'}}
       className="min-w-screen min-h-screen bg-gray-50 text-gray-900 space-y-5 bg-cover bg-center">
@@ -65,7 +52,7 @@ const Layout = (props: Props) => {
           <div className="relative">
             <div className="w-full space-y-2">
               {
-                menuItems.map((menuItem,key) => (
+                navItems['student'].map((menuItem,key) => (
                   <Link
                     key={key}
                     href={menuItem.href}
@@ -79,9 +66,7 @@ const Layout = (props: Props) => {
                   </Link>
                 ))
               }
-
             </div>
-
           </div>
           <div className="col-span-5">
             {props.children}
@@ -89,6 +74,7 @@ const Layout = (props: Props) => {
         </div>
       </div>
     </div>
+    </NextUIProvider>
   );
 };
 
