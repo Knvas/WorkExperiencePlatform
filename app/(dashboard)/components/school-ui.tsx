@@ -110,7 +110,7 @@ const SchoolUi = () => {
           <Card
             shadow={'none'}
             className="px-1 border">
-            <CardHeader className="font-semibold justify-center">
+            <CardHeader className="font-semibold">
               Student Progress for 2023
             </CardHeader>
             <Divider />
