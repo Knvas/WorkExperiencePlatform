@@ -120,10 +120,10 @@ const SchoolUi = () => {
                   data={[
                     {
                       values: [65, 25,10,],
-                      labels: ['US', 'China', 'European Union'],
+                      labels: ['Approved', 'Pending', 'Declined'],
                       domain: {column: 10},
                       name: 'GHG Emissions',
-                      hoverinfo: 'label+percent+name',
+                      hoverinfo: 'label+percent',
                       hole: .70,
                       type: 'pie',
                       marker: {
