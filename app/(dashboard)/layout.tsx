@@ -52,7 +52,7 @@ const Layout = (props: Props) => {
           <div className="relative">
             <div className="w-full space-y-2">
               {
-                navItems['student'].map((menuItem,key) => (
+                navItems['school'].map((menuItem,key) => (
                   <Link
                     key={key}
                     href={menuItem.href}
@@ -61,7 +61,7 @@ const Layout = (props: Props) => {
                    ${pathname === menuItem.href ? 'text-white bg-primary hover:text-white' : 'hover:text-primary'}
                    text-sm text-gray-800 font-medium`}
                   >
-                    {menuItem.icon}
+                    {menuItem.icon()}
                     <span>{menuItem.label}</span>
                   </Link>
                 ))

@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from "@/components/input";
-import {Button} from "@nextui-org/react";
+import {Button, NextUIProvider} from "@nextui-org/react";
 
 const Login = () => {
   return (
