@@ -1,11 +1,14 @@
+'use client'
+
 import React from 'react';
 import InfoCard from "@/components/info-card";
 import TeacherIcon from "@/components/icons/teacher";
 import Approved from "@/components/icons/approved";
 import Pending from "@/components/icons/pending";
 import Declined from "@/components/icons/declined";
-import {Button} from "@nextui-org/react";
-import {Card, CardBody, CardHeader} from "@nextui-org/card";
+import {Button, Card, CardBody, CardHeader, Divider} from "@nextui-org/react";
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@nextui-org/react";
+
 import Progress from "@/components/progress";
 
 const SchoolUi = () => {
@@ -50,19 +53,41 @@ const SchoolUi = () => {
         </div>
 
       </div>
-      <div className="grid grid-cols-9">
+      <div className="grid grid-cols-10">
         <Card
-          className="col-span-6"
+          className="col-span-7"
           shadow={'none'}>
           <CardHeader>
             <div className="text-gray-900 font-semibold">
               Overview
-              <Progress />
             </div>
 
           </CardHeader>
           <CardBody>
-            Body here
+            <Table
+              fullWidth
+              classNames={{
+                th: ["bg-transparent", "text-default-500", "border-b", "border-divider"],
+              }}
+              removeWrapper
+              shadow={'none'}
+              className="divide-y divide-y-4"
+              aria-label="Example static collection table">
+              <TableHeader>
+                <TableColumn>Student Name</TableColumn>
+                <TableColumn>Year Group</TableColumn>
+                <TableColumn>Employer</TableColumn>
+                <TableColumn>Assignment Progress</TableColumn>
+              </TableHeader>
+              <TableBody>
+                <TableRow key="1">
+                  <TableCell>Darlene Robertson</TableCell>
+                  <TableCell>Year 10</TableCell>
+                  <TableCell>Bank Of America</TableCell>
+                  <TableCell><Progress /></TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
           </CardBody>
         </Card>
 
