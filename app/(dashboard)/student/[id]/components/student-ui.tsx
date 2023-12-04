@@ -5,19 +5,17 @@ import {Card, CardBody, CardHeader} from "@nextui-org/card";
 import {Avatar, Button, Checkbox, CheckboxGroup, Divider} from "@nextui-org/react";
 import {Input, Textarea} from "@nextui-org/input";
 import {FolderIcon} from "@heroicons/react/24/outline";
-import Notifications from "@/components/notification";
-import AssignmentProgress from "@/components/assignment-progress";
 
 const StudentUi = () => {
   const [update, setUpdate] = React.useState(false)
 
 
   return (
-    <div className="grid grid-cols-9 gap-x-3 col-span-6 overflow-y-scroll">
-      <div className={update ? `col-span-9 overflow-y-scroll`: 'col-span-6 overflow-y-scroll'}>
+    <div className="grid grid-cols-9 gap-x-3">
+      <div className={`col-span-9`}>
         <Card
           shadow={'none'}
-          className="bg-white/[0.80] border px-2"
+          className="border px-2"
         >
           <CardHeader>
             <div className="flex items-center justify-between w-full">
@@ -32,7 +30,8 @@ const StudentUi = () => {
             </div>
           </CardHeader>
 
-          <CardBody className="pb-5">
+          <CardBody>
+
             <div>
               <div className="uppercase">Personal Information</div>
               <div className="flex items-end justify-between">
@@ -142,6 +141,8 @@ const StudentUi = () => {
                     label: 'text-sm'
                   }}
                 />
+
+
               </div>
             </div>
           </CardBody>
@@ -701,6 +702,8 @@ const StudentUi = () => {
           )
         }
 
+
+
         {
           update && (
             <div className="py-5 flex items-center justify-center space-x-4">
@@ -709,24 +712,9 @@ const StudentUi = () => {
             </div>
           )
         }
-
-
       </div>
-      {
-        !update && (
-          <div className="col-span-3 space-y-4">
-            <AssignmentProgress />
-            <Notifications />
-          </div>
-        )
-      }
-
     </div>
   );
 };
 
 export default StudentUi;
-
-
-
-// 0535581354 - Emma

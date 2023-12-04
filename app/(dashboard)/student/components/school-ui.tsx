@@ -11,13 +11,14 @@ import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@
 import Progress from "@/components/progress";
 import dynamic from "next/dynamic";
 import {CardFooter} from "@nextui-org/card";
-
-const Plot = dynamic(() => import('react-plotly.js') , {
-  ssr: false
-})
+import {useRouter} from "next/navigation";
 
 
 const SchoolUi = () => {
+
+  const router = useRouter()
+
+
   return (
     <div className="space-y-5">
       <div className="grid grid-cols-12 gap-x-3">
@@ -37,7 +38,11 @@ const SchoolUi = () => {
               removeWrapper
               shadow={'none'}
               className="divide-y divide-y-4"
-              aria-label="Example static collection table">
+              aria-label="Example static collection table"
+              onRowAction={() => {
+                router.push('/student/1')
+              }}
+            >
               <TableHeader>
                 <TableColumn>Student ID</TableColumn>
                 <TableColumn>Student Name</TableColumn>

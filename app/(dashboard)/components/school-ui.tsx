@@ -6,10 +6,11 @@ import TeacherIcon from "@/components/icons/teacher";
 import Approved from "@/components/icons/approved";
 import Pending from "@/components/icons/pending";
 import Declined from "@/components/icons/declined";
-import {Button, Card, CardBody, CardHeader, divider, Divider} from "@nextui-org/react";
+import {Button, Card, CardBody, CardHeader, Divider} from "@nextui-org/react";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell} from "@nextui-org/react";
 import Progress from "@/components/progress";
 import dynamic from "next/dynamic";
+import Notifications from "@/components/notification";
 
 const Plot = dynamic(() => import('react-plotly.js') , {
   ssr: false
@@ -18,7 +19,7 @@ const Plot = dynamic(() => import('react-plotly.js') , {
 
 const SchoolUi = () => {
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 col-span-6">
       <div className="grid grid-cols-5 gap-x-5">
         <InfoCard
           icon={<TeacherIcon />}
@@ -95,17 +96,7 @@ const SchoolUi = () => {
         </Card>
 
         <div className="col-span-3 space-y-3">
-          <Card
-            shadow={'none'}
-            className="px-1 border">
-            <CardHeader className="font-semibold">
-              Notifications
-            </CardHeader>
-            <Divider />
-            <CardBody>
-
-            </CardBody>
-          </Card>
+          <Notifications />
 
           <Card
             shadow={'none'}
@@ -165,7 +156,6 @@ const SchoolUi = () => {
                   }}
                 />
               </div>
-
 
             </CardBody>
           </Card>

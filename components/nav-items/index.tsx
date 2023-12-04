@@ -61,4 +61,8 @@ const superAdmin = [
 ]
 
 
-export const navItems = { student, school, superAdmin }
+export const navItems = {
+  'student': student,
+  'school': school,
+  'admin': superAdmin
+}

@@ -9,7 +9,7 @@ interface Props
   label: string;
   className: string;
   inputClassName: string;
-  labelClassName: string;
+  labelclass: string;
   error: boolean
 }
 const Input = (props: Partial<Props>) => {
@@ -17,7 +17,7 @@ const Input = (props: Partial<Props>) => {
     <div className={cn('w-full space-y-1', props.className)}>
       <label
         htmlFor={props.name}
-        className={cn('text-bagMainGray font-medium text-gray-800', props.labelClassName)}
+        className={cn('text-bagMainGray font-medium text-gray-800', props.labelclass, props.error ? 'text-red-600' : '')}
       >
         {props.label}
       </label>
@@ -27,7 +27,7 @@ const Input = (props: Partial<Props>) => {
         className={cn(
           'w-full rounded-md border border-bagLightGray px-4 py-3 text-sm placeholder:text-bagMainGray focus:border-cart-pink focus:outline-none focus:ring-1 focus:ring-cart-pink ',
           props.inputClassName,
-          props.error ? 'border-cart-pink' : ''
+          props.error ? 'border-red-600' : ''
         )}
       ></input>
     </div>
